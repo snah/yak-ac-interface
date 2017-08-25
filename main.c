@@ -45,8 +45,8 @@ void main()
 	uint8_t len;
 	const unsigned char *data;
 
-	TRISAbits.TRISA5 = 0;
-	LATAbits.LATA5 = 1;
+	TRISCbits.TRISC5 = 0;
+	LATCbits.LATC5 = 0;
 
 	while (1)
 	{
@@ -55,11 +55,11 @@ void main()
 			len = usb_get_out_buffer(1, &data);
 			if (data[0])
 			{
-				LATAbits.LATA5 = 1;
+				LATCbits.LATC5 = 1;
 			}
 			else
 			{
-				LATAbits.LATA5 = 0;
+				LATCbits.LATC5 = 0;
 			}
 			usb_arm_out_endpoint(1);
 		}
